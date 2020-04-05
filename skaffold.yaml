@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2alpha4
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: olpie101/nats-hook
+      sync:
+        infer:
+          - '*.go'
+          - '*.mod'
+          - '*.sum'
+  local: {}
+deploy:
+  kustomize:
+    paths:
+      - "k8s/dev"

@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nats-hook
+  labels:
+    app.kubernetes.io/name: nats-hook
+spec:
+  template:
+    spec:
+      volumes:
+        - name: nats-creds
+          emptyDir: {}
